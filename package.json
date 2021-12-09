@@ -1,0 +1,23 @@
+{
+  "name": "covid-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w ./scss/style.scss -o ./dist/css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saharlaor/Covid-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saharlaor/Covid-App/issues"
+  },
+  "homepage": "https://github.com/saharlaor/Covid-App#readme",
+  "dependencies": {
+    "node-sass": "^7.0.0"
+  }
+}
