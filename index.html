@@ -6,9 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Covid19 Dashboard</title>
+
+    <link rel="stylesheet" href="dist/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dist/scripts/script.js" defer></script>
   </head>
 
   <body>
+    <header>
+      <nav>
+        <select name="continents" id="continents">
+          <option value="" selected="selected">Choose continent</option>
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Australia">Australia</option>
+          <option value="Europe">Europe</option>
+          <option value="World">World</option>
+        </select>
+        <select name="countries" id="countries">
+          <option value="">Choose a continent first...</option>
+        </select>
+        <select name="severity" id="severity">
+          <option selected="selected" value="overview">Overview</option>
+          <option value="cases">Cases</option>
+          <option value="deaths">Deaths</option>
+          <option value="critical">Critical</option>
+          <option value="recovered">Recovered</option>
+        </select>
+      </nav>
+    </header>
+    <main>
+      <div class="continent-statistics">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="country-statistics"></div>
+    </main>
   </body>
 
 </html>
