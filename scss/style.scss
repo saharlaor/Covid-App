@@ -33,6 +33,7 @@ nav {
 
 main {
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   section {
     flex-shrink: 0;
@@ -52,5 +53,5 @@ main {
 
 .country-statistics {
   background-color: green;
-  width: 360px;
+  height: 360px;
 }
