@@ -40,5 +40,28 @@ main {
     aspect-ratio: 1; }
 
 .country-statistics {
-  background-color: green;
-  height: 27.5vh; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  height: 27.5vh;
+  background-color: green; }
+  .country-statistics > * {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; }
+  .country-statistics .country-statistics__country {
+    position: absolute;
+    top: 1rem;
+    margin: 0 auto;
+    align-self: flex-start;
+    justify-self: center;
+    font-size: 3vw; }
+  .country-statistics div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 2vw;
+    border: 2px solid purple;
+    border-radius: 5px; }

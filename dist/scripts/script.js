@@ -58,7 +58,15 @@ const continentGraphData = {
   },
 };
 const continentGraph = new Chart(continentGraphEl, continentGraphData);
-// continentGraph.defaults.global.font.size = 8;
+const countryStatisticsEl = document.querySelector(".country-statistics");
+const [
+  countryTotalCasesEl,
+  countryNewCasesEl,
+  countryTotalDeathsEl,
+  countryNewDeathsEl,
+  countryTotalRecoveredEl,
+  countryCriticalEl,
+] = countryStatisticsEl.querySelectorAll("div");
 
 // Countries' relevant data cache
 const continents = {
@@ -113,6 +121,7 @@ async function getCountriesCovidData(continent) {
           );
           console.log(countriesData.data.latest_data);
           countries[country.name] = countriesData.data.latest_data;
+          countries[country.name].timeline = countriesData.data.timeline;
         } catch (err) {
           console.log(err);
         } finally {
@@ -172,7 +181,29 @@ async function continentPicked(e) {
 }
 
 function countryPicked(e) {
-  console.log(e.target);
+  const country = countrySelectEl.querySelector(
+    `[value='${e.target.value}']`
+  ).textContent;
+  document.querySelector(".country-statistics__country").textContent = country;
+  const countryStatistics = [
+    countries[country].confirmed,
+    countries[country].timeline[0].new_confirmed,
+    countries[country].deaths,
+    countries[country].timeline[0].new_deaths,
+    countries[country].recovered,
+    countries[country].critical,
+  ];
+  [
+    countryTotalCasesEl,
+    countryNewCasesEl,
+    countryTotalDeathsEl,
+    countryNewDeathsEl,
+    countryTotalRecoveredEl,
+    countryCriticalEl,
+  ].forEach((element, index) => {
+    const spanEl = element.querySelector("span");
+    spanEl.textContent = countryStatistics[index];
+  });
 }
 
 function severityPicked(e) {

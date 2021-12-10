@@ -52,6 +52,29 @@ main {
 }
 
 .country-statistics {
-  background-color: green;
+  @include flex-center;
+  gap: 1rem;
+  position: relative;
   height: 27.5vh;
+  background-color: green;
+  & > * {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+  .country-statistics__country {
+    position: absolute;
+    top: 1rem;
+    margin: 0 auto;
+    align-self: flex-start;
+    justify-self: center;
+    font-size: 3vw;
+  }
+  div {
+    @include flex-center;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 2vw;
+    border: 2px solid purple;
+    border-radius: 5px;
+  }
 }
