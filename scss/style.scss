@@ -21,10 +21,11 @@ body {
 
 nav {
   @include flex-center;
+  height: 7.5vh;
   select {
+    @include flex-center;
     flex-grow: 1;
-    padding: 2rem;
-    font-size: 1.5rem;
+    height: 100%;
     border-radius: 0;
     border-right: none;
     background-color: $navbar-background;
@@ -43,7 +44,6 @@ main {
 .continent-statistics {
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: 720px;
   canvas {
     max-width: 100%;
     max-height: 65vh;

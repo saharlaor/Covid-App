@@ -50,7 +50,7 @@ const continentGraphData = {
       y: {
         ticks: {
           font: {
-            size: 10,
+            size: 8,
           },
         },
       },
