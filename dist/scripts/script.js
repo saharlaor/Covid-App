@@ -8,6 +8,33 @@ let graphCriticalData = [];
 let graphDeathsData = [];
 let graphRecoveredData = [];
 
+const graphDatasets = {
+  confirmed: {
+    label: "confirmed",
+    backgroundColor: ["#fe4"],
+    borderColor: "rgb(255, 99, 132)",
+    data: graphConfirmedData,
+  },
+  critical: {
+    label: "critical",
+    backgroundColor: ["#fa3"],
+    borderColor: "rgb(255, 99, 132)",
+    data: graphCriticalData,
+  },
+  deaths: {
+    label: "deaths",
+    backgroundColor: ["#f33"],
+    borderColor: "rgb(255, 99, 132)",
+    data: graphDeathsData,
+  },
+  recovered: {
+    label: "recovered",
+    backgroundColor: ["#22d"],
+    borderColor: "rgb(255, 99, 132)",
+    data: graphRecoveredData,
+  },
+};
+
 const [continentSelectEl, countrySelectEl, severitySelectEl] =
   document.querySelectorAll("select");
 const continentGraphEl = document.querySelector("canvas");
@@ -15,38 +42,23 @@ const continentGraphData = {
   type: "bar",
   data: {
     labels: graphCountries,
-    datasets: [
-      {
-        label: "confirmed",
-        backgroundColor: ["#fe4"],
-        borderColor: "rgb(255, 99, 132)",
-        data: graphConfirmedData,
-      },
-      {
-        label: "critical",
-        backgroundColor: ["#fa3"],
-        borderColor: "rgb(255, 99, 132)",
-        data: graphCriticalData,
-      },
-      {
-        label: "deaths",
-        backgroundColor: ["#f33"],
-        borderColor: "rgb(255, 99, 132)",
-        data: graphDeathsData,
-      },
-      {
-        label: "recovered",
-        backgroundColor: ["#22d"],
-        borderColor: "rgb(255, 99, 132)",
-        data: graphRecoveredData,
-      },
-    ],
+    datasets: Object.values(graphDatasets),
   },
   options: {
     indexAxis: "y",
+    scales: {
+      y: {
+        ticks: {
+          font: {
+            size: 10,
+          },
+        },
+      },
+    },
   },
 };
 const continentGraph = new Chart(continentGraphEl, continentGraphData);
+// continentGraph.defaults.global.font.size = 8;
 
 // Countries' relevant data cache
 const continents = {
@@ -164,7 +176,12 @@ function countryPicked(e) {
 }
 
 function severityPicked(e) {
-  console.log(e.target);
+  const severity = e.target.value;
+  continentGraphData.data.datasets =
+    severity === "overview"
+      ? Object.values(graphDatasets)
+      : [graphDatasets[severity]];
+  continentGraph.update();
 }
 
 function main() {
