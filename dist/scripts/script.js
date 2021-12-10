@@ -4,6 +4,42 @@ const COVID_API_URL = "http://corona-api.com/countries/";
 
 const [continentSelectEl, countrySelectEl, severitySelectEl] =
   document.querySelectorAll("select");
+const continentGraphEl = document.querySelector("canvas");
+const continentGraphData = {
+  type: "bar",
+  data: {
+    labels: ["Nowhere"],
+    datasets: [
+      {
+        label: "confirmed",
+        backgroundColor: ["#fe4"],
+        borderColor: "rgb(255, 99, 132)",
+        data: [45],
+      },
+      {
+        label: "critical",
+        backgroundColor: ["#fa3"],
+        borderColor: "rgb(255, 99, 132)",
+        data: [45],
+      },
+      {
+        label: "deaths",
+        backgroundColor: ["#f33"],
+        borderColor: "rgb(255, 99, 132)",
+        data: [45],
+      },
+      {
+        label: "recovered",
+        backgroundColor: ["#22d"],
+        borderColor: "rgb(255, 99, 132)",
+        data: [45],
+      },
+    ],
+  },
+  options: {},
+};
+const continentGraph = new Chart(continentGraphEl, continentGraphData);
+
 // Countries' relevant data cache
 const continents = {
   Africa: [],
