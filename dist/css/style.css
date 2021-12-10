@@ -23,16 +23,18 @@ nav {
 
 main {
   display: flex;
-  flex-grow: 1;
-  background-color: red; }
+  flex-grow: 1; }
   main section {
     flex-shrink: 0; }
 
 .continent-statistics {
-  background-color: blue;
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 720px; }
+  .continent-statistics canvas {
+    max-width: 100%;
+    max-height: calc(100vh - 6rem);
+    aspect-ratio: 1; }
 
 .country-statistics {
   background-color: green;
