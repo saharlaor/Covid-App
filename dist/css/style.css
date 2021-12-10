@@ -34,9 +34,9 @@ main {
   flex-basis: 720px; }
   .continent-statistics canvas {
     max-width: 100%;
-    max-height: calc(100vh - 6rem);
+    max-height: 65vh;
     aspect-ratio: 1; }
 
 .country-statistics {
   background-color: green;
-  height: 360px; }
+  height: 27.5vh; }
