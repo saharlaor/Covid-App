@@ -10,6 +10,8 @@ $navbar-background: #888;
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 body {
@@ -29,6 +31,9 @@ nav {
     border-radius: 0;
     border-right: none;
     background-color: $navbar-background;
+    text-align: center;
+    font-size: 2vw;
+    appearance: none;
   }
 }
 
@@ -57,10 +62,6 @@ main {
   position: relative;
   height: 27.5vh;
   background-color: green;
-  & > * {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-  }
   .country-statistics__country {
     position: absolute;
     top: 1rem;

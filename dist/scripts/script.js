@@ -134,6 +134,11 @@ async function getCountriesCovidData(continent) {
 
 function updateCountrySelect(continent) {
   [...countrySelectEl.children].forEach((option) => option.remove());
+  const disabledOptionEl = document.createElement("option");
+  disabledOptionEl.setAttribute("disabled", "true");
+  disabledOptionEl.setAttribute("selected", "true");
+  disabledOptionEl.textContent = "Choose Country";
+  countrySelectEl.append(disabledOptionEl);
   continents[continent].forEach((country) => {
     const countryOptionEl = document.createElement("option");
     countryOptionEl.value = country.code;

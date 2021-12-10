@@ -1,7 +1,8 @@
 * {
   padding: 0px;
   margin: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; }
 
 body {
   display: flex;
@@ -22,7 +23,10 @@ nav {
     height: 100%;
     border-radius: 0;
     border-right: none;
-    background-color: #888; }
+    background-color: #888;
+    text-align: center;
+    font-size: 2vw;
+    appearance: none; }
 
 main {
   display: flex;
@@ -47,8 +51,6 @@ main {
   position: relative;
   height: 27.5vh;
   background-color: green; }
-  .country-statistics > * {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif; }
   .country-statistics .country-statistics__country {
     position: absolute;
     top: 1rem;
