@@ -61,7 +61,7 @@ main {
   gap: 1rem;
   position: relative;
   height: 27.5vh;
-  background-color: green;
+  // background-color: green;
   .country-statistics__country {
     position: absolute;
     top: 1rem;
@@ -73,9 +73,13 @@ main {
   div {
     @include flex-center;
     flex-direction: column;
-    padding: 1rem;
-    font-size: 2vw;
-    border: 2px solid purple;
-    border-radius: 5px;
+    align-self: center;
+    gap: 2rem;
+    min-width: 14vw;
+    margin-top: 2rem;
+    padding: 1% 1%;
+    font-size: 1.5vw;
+    border: 2px solid #555;
+    border-radius: 1rem;
   }
 }
