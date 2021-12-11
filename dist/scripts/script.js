@@ -70,15 +70,22 @@ const [
 
 // Countries' relevant data cache
 const continents = {
-  Africa: [],
-  Americas: [],
-  Asia: [],
-  Europe: [],
-  Oceania: [],
+  Africa: getContinentCache("Africa"),
+  Americas: getContinentCache("Americas"),
+  Asia: getContinentCache("Asia"),
+  Europe: getContinentCache("Europe"),
+  Oceania: getContinentCache("Oceania"),
 };
-const countries = {};
+const countries = window.localStorage.countries
+  ? JSON.parse(window.localStorage.getItem("countries"))
+  : {};
 
 // Functions
+function getContinentCache(continent) {
+  const continentCache = window.localStorage.getItem(continent);
+  return continentCache ? JSON.parse(continentCache) : [];
+}
+
 async function request(url) {
   try {
     const req = await axios.get(url);
@@ -108,6 +115,11 @@ async function getContinentCountries(continent) {
     });
   } catch (e) {
     console.log(e);
+  } finally {
+    window.localStorage.setItem(
+      continent,
+      JSON.stringify(continents[continent])
+    );
   }
 }
 
@@ -121,10 +133,14 @@ async function getCountriesCovidData(continent) {
           );
           console.log(countriesData.data.latest_data);
           countries[country.name] = countriesData.data.latest_data;
-          countries[country.name].timeline = countriesData.data.timeline;
+          countries[country.name].timeline = countriesData.data.timeline.slice(
+            0,
+            14
+          );
         } catch (err) {
           console.log(err);
         } finally {
+          window.localStorage.setItem("countries", JSON.stringify(countries));
           resolve();
         }
       });
