@@ -63,26 +63,38 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   gap: 1rem;
-  position: relative;
   height: 27vh; }
   .country-statistics .country-statistics__country {
-    position: absolute;
-    top: 1rem;
-    margin: 0 auto;
-    align-self: flex-start;
-    justify-self: center;
-    font-size: 3vw; }
-  .country-statistics div {
+    font-size: 4vmin; }
+  .country-statistics .country-statistics__stats {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    align-self: center;
-    gap: 2rem;
-    min-width: 14vw;
-    margin-top: 2rem;
-    padding: 1% 1%;
-    font-size: 1.5vw;
-    border: 2px solid #555;
-    border-radius: 1rem; }
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%; }
+    .country-statistics .country-statistics__stats div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 3vh;
+      min-width: 14vw;
+      padding: 1% 1%;
+      font-size: 1.5vw;
+      border: 2px solid #555;
+      border-radius: 1rem; }
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  .continent-statistics canvas {
+    max-height: 58vh; }
+  .country-statistics {
+    gap: 5px;
+    height: 34vh; }
+    .country-statistics .country-statistics__stats {
+      gap: 5px; }
+      .country-statistics .country-statistics__stats div {
+        min-width: 28vw; } }

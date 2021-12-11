@@ -46,9 +46,9 @@ const continentGraphData = {
     datasets: Object.values(graphDatasets),
   },
   options: {
-    indexAxis: "y",
+    indexAxis: "x",
     scales: {
-      y: {
+      x: {
         ticks: {
           font: {
             size: 8,
@@ -59,7 +59,9 @@ const continentGraphData = {
   },
 };
 const continentGraph = new Chart(continentGraphEl, continentGraphData);
-const countryStatisticsEl = document.querySelector(".country-statistics");
+const countryStatisticsEl = document.querySelector(
+  ".country-statistics__stats"
+);
 const [
   countryTotalCasesEl,
   countryNewCasesEl,
