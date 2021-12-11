@@ -78,8 +78,7 @@ main {
   @include flex-center;
   gap: 1rem;
   position: relative;
-  height: 27.5vh;
-  // background-color: green;
+  height: 27vh;
   .country-statistics__country {
     position: absolute;
     top: 1rem;

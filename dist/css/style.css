@@ -65,7 +65,7 @@ main {
   align-items: center;
   gap: 1rem;
   position: relative;
-  height: 27.5vh; }
+  height: 27vh; }
   .country-statistics .country-statistics__country {
     position: absolute;
     top: 1rem;
