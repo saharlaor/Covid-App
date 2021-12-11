@@ -1,4 +1,5 @@
-$navbar-background: #888;
+$navbar-background: #249;
+$navbar-color: #ddd;
 
 @mixin flex-center {
   display: flex;
@@ -28,9 +29,10 @@ nav {
     @include flex-center;
     flex-grow: 1;
     height: 100%;
+    color: $navbar-color;
+    background-color: $navbar-background;
     border-radius: 0;
     border-right: none;
-    background-color: $navbar-background;
     text-align: center;
     font-size: 2vw;
     appearance: none;
