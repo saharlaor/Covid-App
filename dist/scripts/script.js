@@ -35,6 +35,7 @@ const graphDatasets = {
   },
 };
 
+const bufferingEl = document.querySelector("#buffering");
 const [continentSelectEl, countrySelectEl, severitySelectEl] =
   document.querySelectorAll("select");
 const continentGraphEl = document.querySelector("canvas");
@@ -179,11 +180,12 @@ function updateGraph(continent) {
     graphDeathsData.push(countries[country.name].deaths);
     graphRecoveredData.push(countries[country.name].recovered);
   });
-  // TODO: Remove spinner loader here
+  bufferingEl.classList.add("hidden");
   continentGraph.update();
 }
 
 async function continentPicked(e) {
+  bufferingEl.classList.remove("hidden");
   const continent = e.target.value;
   if (!continents[continent].length) {
     try {

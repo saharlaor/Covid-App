@@ -7,8 +7,23 @@
 body {
   display: flex;
   flex-direction: column;
+  position: relative;
   min-height: 100vh;
   width: 100%; }
+
+#buffering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 100; }
+  #buffering.hidden {
+    display: none; }
+  #buffering img {
+    transform: scale(1.7); }
 
 nav {
   display: flex;
