@@ -127,9 +127,9 @@ async function getContinentCountries(continent) {
 }
 
 async function getCountriesCovidData(continent) {
-  return Promise.all(
-    continents[continent].map((country) => {
-      return new Promise(async (resolve, _reject) => {
+  return Promise.allSettled(
+    continents[continent].map((country, i) => {
+      return new Promise(async (resolve, reject) => {
         try {
           const countriesData = await request(
             `${PROXY_URL}${COVID_API_URL}${country.code}`
@@ -140,11 +140,13 @@ async function getCountriesCovidData(continent) {
             0,
             14
           );
-        } catch (err) {
-          console.log(err);
-        } finally {
           window.localStorage.setItem("countries", JSON.stringify(countries));
           resolve();
+        } catch (err) {
+          console.log(continents);
+          continents[continent].splice(i, 1);
+          console.log(continents);
+          reject(err);
         }
       });
     })
@@ -212,9 +214,13 @@ function countryPicked(e) {
   document.querySelector(".country-statistics__country").textContent = country;
   const countryStatistics = [
     countries[country].confirmed,
-    countries[country].timeline[0].new_confirmed,
+    countries[country].timeline[0]
+      ? countries[country].timeline[0].new_confirmed
+      : "N/A",
     countries[country].deaths,
-    countries[country].timeline[0].new_deaths,
+    countries[country].timeline[0]
+      ? countries[country].timeline[0].new_deaths
+      : "N/A",
     countries[country].recovered,
     countries[country].critical,
   ];
