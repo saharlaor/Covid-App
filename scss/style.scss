@@ -38,6 +38,17 @@ body {
   }
 }
 
+#vertical-warning {
+  @include flex-center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.2 0 ease;
+}
+
 nav {
   @include flex-center;
   height: 7.5vh;
@@ -118,5 +129,12 @@ main {
         min-width: 28vw;
       }
     }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  #vertical-warning {
+    z-index: 100;
+    opacity: 1;
   }
 }

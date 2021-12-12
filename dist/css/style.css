@@ -25,6 +25,18 @@ body {
   #buffering img {
     transform: scale(1.7); }
 
+#vertical-warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.2 0 ease; }
+
 nav {
   display: flex;
   justify-content: center;
@@ -99,3 +111,8 @@ main {
       gap: 5px; }
       .country-statistics .country-statistics__stats div {
         min-width: 28vw; } }
+
+@media screen and (orientation: portrait) {
+  #vertical-warning {
+    z-index: 100;
+    opacity: 1; } }
